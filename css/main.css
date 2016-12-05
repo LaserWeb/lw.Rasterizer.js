@@ -16,6 +16,14 @@ html, body {
     background-color: #222222;
 }
 
+pre, code {
+    font-family: monospace;
+}
+
+.fr {
+    float: right;
+}
+
 .control, .info {
     color: #00bc8c;
     font-size: 0.8em;
@@ -30,6 +38,16 @@ html, body {
     color: #f3f3f3;
     text-align: center;
     background-color: transparent;
+}
+
+.control select {
+    color: #f3f3f3;
+    background-color: #222;
+}
+
+.control :disabled {
+    color: #555;
+    cursor: not-allowed;
 }
 
 .button {
@@ -69,10 +87,11 @@ html, body {
     padding: 15px;
     position: fixed;
     overflow: auto;
+    z-index: 500;
 }
 
 #sidebar {
-    width: 320px;
+    width: 340px;
     list-style: none;
 }
 
@@ -82,21 +101,30 @@ html, body {
 
 #sidebar .control {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 #sidebar .control input {
     max-width: 60px;
 }
 
+#sidebar .control input[type="range"] {
+    max-width: 120px;
+}
+
 #sidebar .control span {
-    width: 80px;
+    width: 100px;
     display: inline-block;
+}
+
+#sidebar .control span.unit {
+    float: right;
+    width: auto;
 }
 
 #workspace {
     right: 0;
-    left: 320px;
+    left: 340px;
 }
 
 #workspace .info span {
@@ -124,6 +152,7 @@ html, body {
 }
 
 #gCodeWrapper {
+    z-index: 1000;
     position: fixed;
     display: none;
     top: 0;
@@ -141,4 +170,30 @@ html, body {
     background: #222;
     border-radius: 8px;
     border: 1px solid #464545;
+}
+
+#tooltip {
+    left: 355px;
+    display: none;
+    padding: 15px;
+    z-index: 1500;
+    font-size: 0.8em;
+    margin-right: 15px;
+    position: absolute;
+    border-radius: 4px;
+    line-height: 1.6em;
+    background-color: #111;
+    border: 1px #00bc8c solid;
+}
+
+#tooltip code {
+    padding: 2px 4px;
+    font-size: 1.2em;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #00bc8c;
+}
+
+.tooltip {
+    display: none;
 }
